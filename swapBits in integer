@@ -1,0 +1,37 @@
+// Java program to swap bits in an integer
+import java.io.*;
+import java.util.Scanner;
+
+public class swapping
+{
+	
+// This function swaps bit at
+// positions i and j in an integer x
+public static long swapBits( long x, int i, int j)
+{
+	
+	//Extract i-th and j-th bits,and see if they differ
+
+	if(((x>>>i)&1)!=((x>>>j)&1))
+	{
+	    //i-th and j-th bits differ.We will swap them by flipping their values.
+	    //select the bits to flip with bitMask.Since x^1=0 when x=1 and x^1=1 when x=0 we can perform flip XOR
+	    long bitMask=(1L<<i)|(1L<<j);
+	    x^=bitMask;
+	}
+	return x;
+}
+
+	/* Driver code*/
+	public static void main (String[] args)
+	{
+	  Scanner obj=new Scacnner(System.in);
+	    long a=obj.nextInt();
+	   int b=obj.nextInt();
+	    int c=obj.nextInt();
+		long res = swapBits(a,b,c);
+		System.out.println ("Result = " + res);
+	}
+}
+
+
